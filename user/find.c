@@ -3,6 +3,7 @@
 #include "kernel/fs.h"
 #include "user/user.h"
 
+// 去除字符串后面的空格
 char*
 rtrim(char* path)
 {
@@ -23,9 +24,9 @@ find(char* path, char* name)
 {
     char buf[512], *p;
     int fd;
-    // dir destorter
+    // dir descriptor
     struct dirent de;
-    // file descpter
+    // file descriptor
     struct stat st;
 
     if ((fd = open(path, 0)) < 0) {
@@ -67,7 +68,7 @@ find(char* path, char* name)
                 memmove(p, de.name, DIRSIZ);
                 // create a string with zero ending.
                 p[DIRSIZ] = '\0';
-                // stat each of file
+                // stat each of files
                 if (stat(buf, &st) == -1) {
                     fprintf(2, "find: cannot stat '%s'\n", buf);
                     continue;
@@ -85,7 +86,6 @@ find(char* path, char* name)
                     find(buf, name);
                 }
             }
-        
     }
 }
 
