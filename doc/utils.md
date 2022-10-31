@@ -55,7 +55,7 @@ main(int argc, char* argv[])
 
 将 `$U/_sleep\` 添加到 `Makefile` 中，如下图：
 
-![image-20221030211552460](C:\Users\chen2\AppData\Roaming\Typora\typora-user-images\image-20221030211552460.png)
+![1](./utils.assets/1.png)
 
 然后运行 `make qemu` ，之后执行 `sleep` 函数。
 
