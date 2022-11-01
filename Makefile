@@ -172,11 +172,8 @@ mkfs/mkfs: mkfs/mkfs.c $K/fs.h $K/param.h
 .PRECIOUS: %.o
 
 UPROGS=\
-	$U/_sleep\
-	$U/_pingpong\
-	$U/_primes\
-	$U/_find\
-	$U/_xargs\
+	$U/_sysinfotest\
+	$U/_trace\
 	$U/_cat\
 	$U/_echo\
 	$U/_forktest\
@@ -265,8 +262,8 @@ ifeq ($(LAB),util)
 endif
 
 
-fs.img: mkfs/mkfs README $(UEXTRA) $(UPROGS)
-	mkfs/mkfs fs.img README $(UEXTRA) $(UPROGS)
+fs.img: mkfs/mkfs README.md $(UEXTRA) $(UPROGS)
+	mkfs/mkfs fs.img README.md $(UEXTRA) $(UPROGS)
 
 -include kernel/*.d user/*.d
 

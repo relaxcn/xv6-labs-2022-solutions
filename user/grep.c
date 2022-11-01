@@ -2,6 +2,7 @@
 
 #include "kernel/types.h"
 #include "kernel/stat.h"
+#include "kernel/fcntl.h"
 #include "user/user.h"
 
 char buf[1024];
@@ -51,7 +52,7 @@ main(int argc, char *argv[])
   }
 
   for(i = 2; i < argc; i++){
-    if((fd = open(argv[i], 0)) < 0){
+    if((fd = open(argv[i], O_RDONLY)) < 0){
       printf("grep: cannot open %s\n", argv[i]);
       exit(1);
     }
