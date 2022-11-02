@@ -682,3 +682,15 @@ procdump(void)
     printf("\n");
   }
 }
+
+// used by sysinfo
+int
+proc_not_unsed_num(void)
+{
+  int nproc = 0;
+  for (struct proc *p = proc; p < &proc[NPROC]; p++) {
+    if (p->state != UNUSED)
+      nproc++;
+  }
+  return nproc;
+}
