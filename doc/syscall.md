@@ -20,11 +20,11 @@ make clean
 
 在终端中输入 `make qemu-gdb` ，这将运行 qemu 并开启调试功能，在这里，端口为本地的 **26000**。此时再打开一个终端，运行 `gdb-multiarch -x .gdbinit`。这将运行 `.gdbinit` 中的命令，也就是开启远程调试功能，并设置`arch`架构为 `riscv64`。具体可以查看此 `.gdbinit`文件。
 
-![image-20221029213304626](.\syscall.assets\image-20221029213304626.png)
+![image-20221029213304626](./syscall.assets/image-20221029213304626.png)
 
-![image-20221029213635688](.\syscall.assets\image-20221029213635688.png)
+![image-20221029213635688](./syscall.assets/image-20221029213635688.png)
 
-![image-20221029213443990](.\syscall.assets\image-20221029213443990.png)
+![image-20221029213443990](./syscall.assets/image-20221029213443990.png)
 
 需要注意的是，如果 gdb 重新运行，那么 qemu 也应该重新运行。否则可能会出现意想不到的问题。
 
@@ -47,7 +47,7 @@ Thread 3 hit Breakpoint 1, syscall () at kernel/syscall.c:133
 
 `b syscall` 将在函数 `syscall` 处设置断点； `c` 将会运行到此断点时等待调试指令；`layout src` 将会开启一个窗口展示调试时的源代码；`backtrace` 将会打印堆栈回溯（stack backtrace)。
 
-![image-20221029214535825](.\syscall.assets\image-20221029214535825.png)
+![image-20221029214535825](./syscall.assets/image-20221029214535825.png)
 
 那么第一个问题：
 
@@ -65,7 +65,7 @@ Thread 3 hit Breakpoint 1, syscall () at kernel/syscall.c:133
 (gdb) p/x *p
 ~~~
 
-![image-20221030190809519](.\syscall.assets\image-20221030190809519.png)
+![image-20221030190809519](./syscall.assets/image-20221030190809519.png)
 
 那么第二个问题：
 
@@ -81,7 +81,7 @@ $2 = 7
 
 得到 `a7` 的值为 `7` 。根据参考教材 [xv6 book](https://pdos.csail.mit.edu/6.828/2022/xv6/book-riscv-rev1.pdf) 第二章和 `user/initcode.S` 中的代码可知，这个 `a7` 寄存器中保存了将要执行的系统调用号。这里的系统调用号为 `7`，在 `kernel/syscall.h` 中可以找到，这个系统调用为 `SYS_exec` 。
 
-![image-20221030191403194](.\syscall.assets\image-20221030191403194.png)
+![image-20221030191403194](./syscall.assets/image-20221030191403194.png)
 
 ### 0x3
 
@@ -101,7 +101,7 @@ $4 = 100010
 >
 >SPP 位指示进入管理员模式之前 hart 执行的特权级别。 当采取陷阱时，如果陷阱源自用户模式，则 SPP 设置为 0，否则设置为 1。 当执行 SRET 指令（见第 3.3.2 节）从陷阱处理程序返回时，如果 SPP 位为 0，则特权级别设置为用户模式，如果 SPP 位为 1，则设置为超级用户模式； 然后将 SPP 设置为 0。
 
-![image-20221030192658267](.\syscall.assets\image-20221030192658267.png)
+![image-20221030192658267](./syscall.assets/image-20221030192658267.png)
 
 根据 `sstatus` 的二进制值 `100010` 可知，SPP 位是 `0`，那么在执行系统调用陷入内核之前的特权级别就是 user mode.
 
@@ -117,7 +117,7 @@ $4 = 100010
 
 > 注：`syscall` 函数位于 `kernel/syscall.c` 132行。
 
-![image-20221030200810283](.\syscall.assets\image-20221030200810283.png)
+![image-20221030200810283](./syscall.assets/image-20221030200810283.png)
 
 ~~~bash
 xv6 kernel is booting
@@ -133,11 +133,11 @@ panic: kerneltrap
 
 在这里是 `0x0000000080001ff4`，所以我在 `kernel/kernel.asm` 中搜索 `80001ff4`。
 
-![image-20221030201332014](.\syscall.assets\image-20221030201332014.png)
+![image-20221030201332014](./syscall.assets/image-20221030201332014.png)
 
 可以看到，果然是 `num = * (int *) 0;` 使内核 panic。对应的汇编则是 `lw a3,0(zero)`。一些 risc v 的汇编指令的简单介绍看这里 [RISC-V Assembly Language](https://web.eecs.utk.edu/~smarz1/courses/ece356/notes/assembly/)。
 
-![image-20221030201953431](.\syscall.assets\image-20221030201953431.png)
+![image-20221030201953431](./syscall.assets/image-20221030201953431.png)
 
 所以这条汇编代码代表：将内存中地址从 0 开始的一个字 word （2 bytes) 大小的数据加载到寄存器 `a3` 中。
 
@@ -167,11 +167,11 @@ $1 = 13
 
 再次输入 `n` 之后会发生 panic，此时输入 `Ctrl + C` 结束。查看 `scase` 寄存器，它代指内核 panic 的原因，查看文档[RISC-V privileged instructions](https://pdos.csail.mit.edu/6.828/2022/labs/n//github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf) 4.1.8 章节。下面是 Exception Code 图标。
 
-![image-20221030203515710](.\syscall.assets\image-20221030203515710.png)
+![image-20221030203515710](./syscall.assets/image-20221030203515710.png)
 
 所以这里的 `13` 代表 `Load page fault` 。就是从内存地址 0 中 加载数据到寄存器 `a3` 时出错。那么地址 0 处是什么数据呢？从本教材 [book-riscv-rev3.pdf](https://pdos.csail.mit.edu/6.828/2022/xv6/book-riscv-rev3.pdf) 的 **Figure 3.3** 中可以找到答案。
 
-![image-20221030204838501](.\syscall.assets\image-20221030204838501.png)
+![image-20221030204838501](./syscall.assets/image-20221030204838501.png)
 
 可以看到，在左侧 Virtual Address 中的地址 0 处对应右侧 Physical Address 的 Unused，表示这个地址没有被使用。而 Kernel 是从虚拟地址的 `0x80000000` 处开始的。
 
