@@ -8,7 +8,7 @@ MIT 6.828 (6.S081) (6.1810) xv6-labs-2022 实验的答案和解析。
 
 ## Labs 解析
 
-Lab: Xv6 and Unix utilities : [解析](https://github.com/flyto2035/xv6-labs-2022/blob/main/doc/utils.md) [代码](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/util)
+Lab: Xv6 and Unix utilities : [解析](./doc/utils.md) [代码](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/util)
 
 Lab: system calls ：[解析](./doc/syscall.md) [代码](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/syscall)
 
