@@ -1,1 +1,1 @@
-LAB=syscall
+LAB=pgtbl
