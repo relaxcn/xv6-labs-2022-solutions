@@ -74,7 +74,28 @@ sys_sleep(void)
 int
 sys_pgaccess(void)
 {
-  // lab pgtbl: your code here.
+  uint64 va;
+  int pagenum;
+  uint64 abitsaddr;
+  argaddr(0, &va);
+  argint(1, &pagenum);
+  argaddr(2, &abitsaddr);
+
+  uint64 maskbits = 0;
+  struct proc *proc = myproc();
+  for (int i = 0; i < pagenum; i++) {
+    pte_t *pte = walk(proc->pagetable, va+i*PGSIZE, 0);
+    if (pte == 0)
+      panic("page not exist.");
+    if (PTE_FLAGS(*pte) & PTE_A) {
+      maskbits = maskbits | (1L << i);
+    }
+    // clear PTE_A, set PTE_A bits zero
+    *pte = ((*pte&PTE_A) ^ *pte) ^ 0 ;
+  }
+  if (copyout(proc->pagetable, abitsaddr, (char *)&maskbits, sizeof(maskbits)) < 0)
+    panic("sys_pgacess copyout error");
+
   return 0;
 }
 #endif
