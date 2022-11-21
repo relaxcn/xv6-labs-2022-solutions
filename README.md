@@ -14,7 +14,7 @@ Lab: system calls ：[解析](./doc/syscall.md) [代码分支](https://github.co
 
 Lab: Page tables： [解析](./doc/pagetable.md) [代码分支](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/pgtbl)
 
-Lab: Traps：[解析](./doc/trap.md) [代码分支](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/traps)
+Lab: Traps：[解析](./doc/traps.md) [代码分支](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/traps)
 
 Lab Copy on-write
 
