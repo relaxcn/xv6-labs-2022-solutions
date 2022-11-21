@@ -229,8 +229,6 @@ void sys_sleep(void){
 
 `alarmtest` 在 `test0` 中调用  `sigalarm(2, periodic)` ，使内核每隔 2 个 ticks 就调用 `periodic` 函数。
 
-### test0: invoke handler
-
 通过修改内核，使得内核可以调转到位于用户空间的处理函数（alarm handler），它将打印出 "alarm!" 字符。
 
 回忆一下之前的内容以及 xv6 book 中的第四章节的内容。当使用 trap 方式陷入内核的时候，会首先执行 `kernel/trampoline.S` 中的 `uservec` ，保存寄存器中的值以便返回时恢复现场，包括 `sepc` 中断时保存的用户程序的程序计数器（pc）；然后跳转到 `kernel/trap.c` 中的 `usertrap(void)` ，检测该中断的类型（是否是系统调用或者是 timer 时钟中断）；然后跳转到 `kernel/trap.c` 中的 `usertrapret(void)` ，它将从之前保存的栈帧(trapframe) 中恢复寄存器，其中一个重要的就是 `pec` ，CPU 从 特权模式 返回 用户模式 ，将使用 `spec` 的值恢复 `pc` 的值，它决定了返回时，CPU 将要执行的用户代码。这一点很重要，我们的代码也是利用这一点，使 CPU 执行我们定义的用户空间中的 alarm handler 函数。
