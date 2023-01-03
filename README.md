@@ -16,14 +16,14 @@ Lab: Page tables： [解析](./doc/pagetable.md) [代码分支](https://github.c
 
 Lab: Traps：[解析](./doc/traps.md) [代码分支](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/traps)
 
-Lab Copy on-write
+Lab Copy on-write [解析](./doc/Copy-On-Write.md)
 
-Lab Multithreading
+Lab Multithreading [解析](./doc/Multithreading.md)
 
-Lab network driver
+Lab network driver [解析](./doc/net.md)
 
-Lab Lock
+Lab Lock [解析](./doc/Locking.md)
 
-Lab File system
+Lab File system [解析](./doc/fs.md)
 
-Lab mmap
+Lab mmap [解析](./doc/mmap.md)
