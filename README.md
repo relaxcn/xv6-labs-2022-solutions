@@ -16,7 +16,7 @@ Lab: Page tables： [解析](./doc/pagetable.md) [代码分支](https://github.c
 
 Lab: Traps：[解析](./doc/traps.md) [代码分支](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/traps)
 
-Lab Copy on-write [解析](./doc/Copy-On-Write.md)
+Lab Copy on-write [解析](./doc/cow.md) [代码分支](https://github.com/relaxcn/xv6-labs-2022-solutions/tree/cow)
 
 Lab Multithreading [解析](./doc/Multithreading.md)
 
