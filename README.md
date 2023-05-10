@@ -8,13 +8,13 @@ MIT 6.828 (6.S081) (6.1810) xv6-labs-2022 实验的答案和解析。
 
 ## Labs 代码和解析
 
-Lab: Xv6 and Unix utilities : [解析](./doc/utils.md) [代码分支](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/util)
+Lab: Xv6 and Unix utilities : [解析](./doc/utils.md) [代码分支](https://github.com/relaxcn/xv6-labs-2022-solutions/tree/util)
 
-Lab: system calls ：[解析](./doc/syscall.md) [代码分支](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/syscall)
+Lab: system calls ：[解析](./doc/syscall.md) [代码分支](https://github.com/relaxcn/xv6-labs-2022-solutions/tree/syscall)
 
-Lab: Page tables： [解析](./doc/pagetable.md) [代码分支](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/pgtbl)
+Lab: Page tables： [解析](./doc/pagetable.md) [代码分支](https://github.com/relaxcn/xv6-labs-2022-solutions/tree/pgtbl)
 
-Lab: Traps：[解析](./doc/traps.md) [代码分支](https://github.com/flyto2035/xv6-labs-2022-solutions/tree/traps)
+Lab: Traps：[解析](./doc/traps.md) [代码分支](https://github.com/relaxcn/xv6-labs-2022-solutions/tree/traps)
 
 Lab Copy on-write [解析](./doc/cow.md) [代码分支](https://github.com/relaxcn/xv6-labs-2022-solutions/tree/cow)
 
