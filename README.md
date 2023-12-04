@@ -4,8 +4,8 @@
 
 ## Backtrace 代码改动
 
-见 [commit](https://github.com/flyto2035/xv6-labs-2022-solutions/commit/c636291e238bc849a6ac9638dfd2a8e922c4febe)
+见 [commit](https://github.com/relaxcn/xv6-labs-2022-solutions/commit/c636291e238bc849a6ac9638dfd2a8e922c4febe)
 
 ## Alarm 代码改动
 
-见 [commit](https://github.com/flyto2035/xv6-labs-2022-solutions/commit/8dd68907b38ac6dbecfc93c4a452e6acb07313bd)
+见 [commit](https://github.com/relaxcn/xv6-labs-2022-solutions/commit/8dd68907b38ac6dbecfc93c4a452e6acb07313bd)
