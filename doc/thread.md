@@ -1,25 +1,4 @@
----
-title: "xv6-labs-2022 Lab6 Multithreading 答案与解析"
-date: 2024-04-07T23:56:33+08:00
-description: Mit 6.S081 Lab Multithreading 答案和解析
-tags: [xv6-labs-2022]
-categories: xv6-labs-notes
-featured_image: "/images/notebook.png"
-draft: false
-comment : true
----
-
-好久没有再写过博客了，曾经稚嫩的脸上如今更多的是疲惫和沧桑。
-
-人在面临生存的问题时，所谓兴趣、技术和情怀都显得那么的微不足道。
-
-但是很高兴，我的心里仍然怀有希望的火种。
-
-这一年来，我一直在经历挫折和反思中度过。我在想，在这个已经既定的，固化的社会规则中，如何能够冲出一条道路；在从小就被附加的思想牢笼中，如何能够找到一种解脱的方法。
-
-通往自由，肉体的自由和心灵的自由是人一生的终极追求。
-
------
+# lab thread
 
 本文不再像前文那样进行细致的翻译和讲解，我想一个有追求的人应该具备独立思考的基本能力。
 
