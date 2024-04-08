@@ -18,7 +18,7 @@ Lab: Traps：[解析](./doc/traps.md) [代码分支](https://github.com/relaxcn/
 
 Lab Copy on-write [解析](./doc/cow.md) [代码分支](https://github.com/relaxcn/xv6-labs-2022-solutions/tree/cow)
 
-Lab Multithreading [解析](./doc/Multithreading.md) [代码分支](https://github.com/relaxcn/xv6-labs-2022-solutions/tree/thread)
+Lab Multithreading [解析](./doc/thread.md) [代码分支](https://github.com/relaxcn/xv6-labs-2022-solutions/tree/thread)
 
 Lab network driver [解析](./doc/net.md)
 
