@@ -30,4 +30,4 @@ Lab mmap [解析](./doc/mmap.md)
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=relaxcn/xv6-labs-2022-solutions&type=Date)](https://www.star-history.com/#relaxcn/xv6-labs-2022-solutions&Date)
+![Star History Chart](https://api.star-history.com/svg?repos=relaxcn/xv6-labs-2022-solutions&type=Date)
