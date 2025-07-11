@@ -27,3 +27,7 @@ Lab Lock [解析](./doc/Locking.md)
 Lab File system [解析](./doc/fs.md)
 
 Lab mmap [解析](./doc/mmap.md)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=relaxcn/xv6-labs-2022-solutions&type=Date)](https://www.star-history.com/#relaxcn/xv6-labs-2022-solutions&Date)
